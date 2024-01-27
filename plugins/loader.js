@@ -1,31 +1,30 @@
 import fs from "fs"
 import path from "path"
-import {exhancerErrorHandler} from "../core/middlewares.js";
-import * as url  from "url";
-
-const __filename = url.fileURLToPath(import.meta.url);
-export const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+import { exhancerErrorHandler } from "../core/middlewares.js";
+import * as url from "url";
 
 /**
  *
  * @param app {import("express").application}
  * @param config {Object}
- * @param config.prefix {String}
+ * @param config.prefix {string}
+ * @param config.handlers {() => {message: string, status: number }[]}
+ * @param config.watch {string}
  * @returns {Promise<boolean>}
  */
 async function loader(app, config) {
-    const routesPath = path.resolve(__dirname, prefix)
-    const routes = await fs.readdirSync(routesPath);
+
+    const routes = await fs.readdirSync(config.watch);
 
     routes.forEach(async (file, i) => {
-        const filePath = path.resolve(routesPath, file, "index.js");
+        const filePath = path.resolve(config.watch, file, "index.js");
         const loaderFn = await import("file:///" + filePath)
 
-        app.use(`${prefix}/${file}`, loaderFn.default())
-        console.log(`[EXHANCER] ⚡ Loaded "${prefix}/${file}" `)
+        app.use(`${config.prefix}/${file}`, loaderFn.default())
+        console.log(`[EXHANCER] ⚡ Loaded "${config.prefix}/${file}" `)
 
-        if(routes?.length === i + 1) {
-            app.use(exhancerErrorHandler());
+        if (routes?.length === i + 1 && config.handlers?.length) {
+            app.use(exhancerErrorHandler(config.handlers));
             console.log(`[EXHANCER] ⚡ Loaded Error Handler `)
         }
     })

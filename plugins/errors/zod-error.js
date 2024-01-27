@@ -3,7 +3,7 @@
  * @param error {Error}
  * @returns {{message: string, status: number}}
  */
-export default function handler(error) {
+export default function zodError(error) {
     const message = JSON.parse(error.message);
     const errorMessages = message.map((errorMsg) => {
 

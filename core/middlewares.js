@@ -1,24 +1,18 @@
-import mongoose from "mongoose";
-import {ZodError} from "zod";
-
-import mongoHanlder from "../plugins/errors/mongoose-errors.js"
-import zodHandler from "../plugins/errors/zod-error.js"
-
-export function exhancerErrorHandler() {
+export function exhancerErrorHandler(handler) {
     let errMessage = "";
-    let errStatus = 500;
+    let errStatus = 0;
 
-    return (err, req, res) => {
-        if (err instanceof mongoose.mongo.MongoServerError) {
-            const {message, status} = mongoHanlder(err);
-            errMessage = message
-            errStatus = status
-        }
+    console.log(handler.length)
+    
+    return (err, req, res, next) => {
+        for (let i = 0; i < handler?.length; i++) {
+            const result = handler[i]?.default(err);
 
-        if(err instanceof ZodError) {
-            const {message, status} = zodHandler(err);
-            errMessage = message
-            errStatus = status
+            if (result?.message || result?.status) {
+                errMessage = result?.message
+                errStatus = result?.status
+                break;
+            }
         }
 
         res.status(errStatus || err?.status || 500).send({

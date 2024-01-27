@@ -5,6 +5,7 @@ export class Exhancer {
 
     #directory
     #fsRouting
+    #errorHandler
 
     /**
      *
@@ -12,10 +13,18 @@ export class Exhancer {
      * @param config.fsRouting {boolean}
      * @param config.directory {string}
      */
-    constructor({fsRouting = false, directory= "src"}) {
+    constructor(config) {
         this.app = express();
-        this.#fsRouting = fsRouting;
+        this.#fsRouting = config?.fsRouting || false;
         this.#directory = directory;
+        this.#errorHandler = []
+    }
+
+    /**
+     * @param handlers {() => {message: string, status: number}}
+     * */
+    onError(handlers) {
+        this.#errorHandler = handlers
     }
 
     /**
@@ -25,15 +34,15 @@ export class Exhancer {
      */
     async run(port, callback) {
         try {
-            await loader(this.app, {prefix: this.directory})
+            const isLoaded = await loader(this.app, { watch: this.#directory, handlers: this.#errorHandler || [], prefix: "/api" })
         }
-        
+
         catch (e) {
+            console.log(e)
             console.log(`[EXHANCER] ⚠️ Failed to load routes from /${this.#directory} \n ${e} `)
         }
-        finally {
-            this.app.listen(port, callback)
-        }
+    
+        this.app.listen(port, callback)
     }
 }
 

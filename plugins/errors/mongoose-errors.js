@@ -1,9 +1,12 @@
+import mongoose from "mongoose";
+
 /**
  *
  * @param error {Error}
  * @returns {{message: string, status: number}}
  */
-export default function handler(error) {
+export default function mongoError(error) {
+    if(error instanceof mongoose.Mon)
     switch (error.code) {
         case 11000:
             const alreadyExists = Object.keys(error?.keyPattern);
