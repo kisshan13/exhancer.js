@@ -1,6 +1,6 @@
 import fs from "fs"
 import path from "path"
-import { exhancerErrorHandler } from "../core/middlewares.js";
+import { exhancerErrorHandler } from "./core/middlewares.js";
 import * as url from "url";
 
 /**

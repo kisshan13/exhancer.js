@@ -1,5 +1,5 @@
 import express from "express"
-import loader from "../plugins/loader.js";
+import loader from "../loader.js";
 
 export class Exhancer {
 
