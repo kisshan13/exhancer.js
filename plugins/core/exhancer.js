@@ -16,7 +16,7 @@ export class Exhancer {
     constructor(config) {
         this.app = express();
         this.#fsRouting = config?.fsRouting || false;
-        this.#directory = directory;
+        this.#directory = config?.directory;
         this.#errorHandler = []
     }
 

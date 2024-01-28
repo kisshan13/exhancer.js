@@ -6,7 +6,7 @@ import mongoose from "mongoose";
  * @returns {{message: string, status: number}}
  */
 export default function mongoError(error) {
-    if(error instanceof mongoose.Mon)
+    if(error instanceof mongoose.mongo.MongoServerError)
     switch (error.code) {
         case 11000:
             const alreadyExists = Object.keys(error?.keyPattern);
