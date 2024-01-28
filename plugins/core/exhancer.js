@@ -38,7 +38,6 @@ export class Exhancer {
         }
 
         catch (e) {
-            console.log(e)
             console.log(`[EXHANCER] ⚠️ Failed to load routes from /${this.#directory} \n ${e} `)
         }
     
