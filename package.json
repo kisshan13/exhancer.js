@@ -1,6 +1,6 @@
 {
   "name": "exhancer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A package for building robust express application with ease.",
   "main": "index.js",
   "type": "module",
