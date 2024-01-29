@@ -1,0 +1,17 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "retype watch",
+    "build": "retype build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "kisshan13",
+  "license": "ISC",
+  "dependencies": {
+    "retypeapp-win-x64": "^3.5.0"
+  }
+}

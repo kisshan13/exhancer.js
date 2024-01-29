@@ -1,0 +1,18 @@
+input: .
+output: .retype
+url: # Add your website address here
+branding:
+  title: ⚡ Exhancer.js
+  label: Docs
+links:
+- text: Issues
+  link: https://retype.com/guides/getting-started/
+- text: Github
+  link: https://retype.com/guides/getting-started/
+breadcrumb:
+  enabled: true               # Enabled by default on Pro projects
+  home: Home                  # Custom label for the first item
+  home: ":icon-home:"         # or, use an icon
+  separator: "|"              # Custom item separator
+footer:
+  copyright: "&copy; Copyright {{ year }}. All rights reserved."
