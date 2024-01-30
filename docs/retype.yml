@@ -15,4 +15,8 @@ breadcrumb:
   home: ":icon-home:"         # or, use an icon
   separator: "|"              # Custom item separator
 footer:
-  copyright: "&copy; Copyright {{ year }}. All rights reserved."
+  copyright: "Crafted with 💖 &copy; Copyright {{ year }}. All rights reserved."
+  links:                     
+    - text: Github
+      icon: mark-github 
+      link: https://github.com/kisshan13/exhancer.js
