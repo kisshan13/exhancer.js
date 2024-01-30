@@ -7,8 +7,10 @@ npm install exhancer
 ```
 
 ### Exhancer provides
-{.list-icon} 
+
+{.list-icon}
+
 - [x] 📂 File System Routing.
-- [x] ⚠️ Custom Error Handlers.
-- [ ] 💕 Pre-Build Utility Middlewares. 
-- [ ] 📗 Pipelines. 
+- [x] ⚠️ Error Handlers.
+- [ ] 💕 Pre-Build Utility Middlewares.
+- [ ] 📗 Pipelines.

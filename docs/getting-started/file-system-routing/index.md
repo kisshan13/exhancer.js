@@ -56,7 +56,7 @@ You have to follow this pattern in every routes you create inside the `src` fold
 node index.js
 ```
 
-You'll now able to make api requests to endpoint.  `/api/hello`
+You'll now able to make api requests to endpoint. `/api/hello`
 
 Similarly, for user api you have to create a `user` folder within the `src` folder and a `index.js` file inside the `user` folder.
 i.e `src/user/index.js`
