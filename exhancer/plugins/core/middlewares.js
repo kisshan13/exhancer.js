@@ -2,11 +2,9 @@ export function exhancerErrorHandler(handler) {
     let errMessage = "";
     let errStatus = 0;
 
-    console.log(handler.length)
-    
     return (err, req, res, next) => {
         for (let i = 0; i < handler?.length; i++) {
-            const result = handler[i]?.default(err);
+            const result = handler[i](err);
 
             if (result?.message || result?.status) {
                 errMessage = result?.message

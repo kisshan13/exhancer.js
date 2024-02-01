@@ -1,6 +1,6 @@
 {
   "name": "exhancer",
-  "version": "1.0.3",
+  "version": "1.0.7",
   "description": "A package for building robust express application with ease.",
   "main": "index.js",
   "type": "module",
@@ -17,9 +17,7 @@
     "url": "https://github.com/kisshan13/exhancer.js/issues"
   },
   "dependencies": {
-    "express": "^4.18.2"
-  },
-  "devDependencies": {
+    "express": "^4.18.2",
     "mongoose": "^8.1.1",
     "zod": "^3.22.4"
   }

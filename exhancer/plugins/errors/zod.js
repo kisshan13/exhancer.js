@@ -6,7 +6,7 @@ import { ZodError } from "zod";
  * @returns {{message: string, status: number}}
  */
 export default function zodError(error) {
-    if (err instanceof ZodError) {
+    if (error instanceof ZodError) {
 
         const message = JSON.parse(error.message);
         const errorMessages = message.map((errorMsg) => {

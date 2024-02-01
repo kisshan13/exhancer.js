@@ -6,9 +6,10 @@ branding:
   label: Docs
 links:
 - text: Issues
-  link: https://retype.com/guides/getting-started/
+  link: https://github.com/kisshan13/exhancer.js/issues
 - text: Github
-  link: https://retype.com/guides/getting-started/
+  icon: mark-github 
+  link: https://github.com/kisshan13/exhancer.js
 breadcrumb:
   enabled: true               # Enabled by default on Pro projects
   home: Home                  # Custom label for the first item
